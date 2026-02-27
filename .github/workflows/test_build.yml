@@ -21,14 +21,14 @@ jobs:
         with:
           python-version: "3.11"
       
+      - name: Install dependencies
+        run: pip install -r src/requirements.txt
+    
       # Verificación de código con Ruff
       - name: Check code with ruff
         working-directory: src
         run: ruff check .
 
-      - name: Install dependencies
-        run: pip install -r src/requirements.txt
-    
       - name: Test with pytest
         working-directory: src
         run: pytest test_main.py
